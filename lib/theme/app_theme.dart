@@ -13,6 +13,7 @@ class AppTheme {
       tabBarTheme: const TabBarTheme(
         labelColor: Colors.amber,
         unselectedLabelColor: Colors.white,
+        indicatorColor: Colors.amber,
       ),
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.white),

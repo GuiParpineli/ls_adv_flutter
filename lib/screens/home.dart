@@ -1,6 +1,8 @@
+import 'package:app/data/data_texts.dart';
 import 'package:flutter/material.dart';
 
 import '../components/lawyer_card.dart';
+import '../components/lawyer_list.dart';
 
 List<String> titles = <String>[
   'O Escritório',
@@ -65,67 +67,18 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Text('Nossa Equipe',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                        )),
-                  ),
-                  LawyerCard(),
-                ],
-              ),
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[1]} $index'),
-                );
-              },
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[2]} $index'),
-                );
-              },
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[3]} $index'),
-                );
-              },
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[4]} $index'),
-                );
-              },
-            ),
-            ListView.builder(
-              itemCount: 25,
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  tileColor: index.isOdd ? oddItemColor : evenItemColor,
-                  title: Text('${titles[5]} $index'),
-                );
-              },
+            Column(
+              children: [
+                const Text('Nossa Equipe',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    )),
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: LawyerList(),
+                ),
+              ],
             ),
           ],
         ),
