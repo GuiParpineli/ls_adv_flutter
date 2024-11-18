@@ -18,9 +18,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
-    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
     const int tabsCount = 6;
 
     return DefaultTabController(
@@ -32,7 +29,7 @@ class Home extends StatelessWidget {
           elevation: 1,
           title: Image.asset(
             'assets/images/home_logo.png',
-            height: 50,
+            height: 40,
             fit: BoxFit.fitHeight,
           ),
           centerTitle: true,
@@ -65,21 +62,38 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
-          children: <Widget>[
-            Column(
-              children: [
-                const Text('Nossa Equipe',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                    )),
-                SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: LawyerList(),
+        body: Stack(
+          children: [
+            Positioned.fill(
+              bottom: MediaQuery.of(context).size.height * 0.2,
+              child: SizedBox(
+                child: Image.asset(
+                  'assets/images/background.webp',
+                  fit: BoxFit.cover,
                 ),
-              ],
+              ),
             ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [
+                      Colors.black.withOpacity(0.0),
+                      Colors.black.withOpacity(0.8),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Positioned.fill(
+              child: TabBarView(
+                children: <Widget>[
+                  LawyerList(),
+                ],
+              ),
+            )
           ],
         ),
       ),

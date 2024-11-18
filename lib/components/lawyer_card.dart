@@ -1,8 +1,10 @@
 import 'package:app/data/data_texts.dart';
+import 'package:app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class LawyerCard extends StatelessWidget {
   const LawyerCard({super.key, required this.team});
+
   final Team team;
 
   @override
@@ -15,6 +17,8 @@ class LawyerCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
+            color: Theme.of(context).cardTheme.color!.withOpacity(0.3),
+            shadowColor: Colors.black,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Row(
@@ -40,7 +44,7 @@ class LawyerCard extends StatelessWidget {
                                 Text(
                                   team.name,
                                   style: const TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 24,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(

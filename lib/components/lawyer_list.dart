@@ -11,14 +11,25 @@ class LawyerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 900,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return LawyerCard(team: teamData[index]);
-        },
-        itemCount: data.length,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Text(
+            'Nossa equipe',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return LawyerCard(team: teamData[index]);
+            },
+            itemCount: data.length,
+          ),
+        ),
+      ],
     );
   }
 }

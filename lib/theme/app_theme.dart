@@ -18,8 +18,10 @@ class AppTheme {
       textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.white),
         bodyMedium: TextStyle(color: Colors.white),
-        headlineLarge: TextStyle(color: Colors.amber),
-        headlineMedium: TextStyle(color: Colors.amber),
+        headlineLarge: TextStyle(color: Colors.white),
+        headlineMedium: TextStyle(color: Colors.white),
+        displayLarge: TextStyle(color: Colors.white),
+        displayMedium: TextStyle(color: Colors.white),
       ),
       cardTheme: const CardTheme(
         color: Colors.black,
