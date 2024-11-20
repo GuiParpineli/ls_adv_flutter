@@ -1,4 +1,5 @@
-import 'package:app/data/data_texts.dart';
+import 'package:app/components/atuations_list.dart';
+import 'package:app/model/team.dart';
 import 'package:flutter/material.dart';
 
 import '../components/lawyer_card.dart';
@@ -24,6 +25,38 @@ class Home extends StatelessWidget {
       initialIndex: 0,
       length: tabsCount,
       child: Scaffold(
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.black,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Image.asset(
+                    'assets/images/wpp.webp',
+                    height: 45,
+                  ),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Image.asset(
+                    'assets/images/instagram.webp',
+                    height: 45,
+                  ),
+                  onPressed: () {},
+                ),
+                IconButton(
+                  icon: Image.asset(
+                    'assets/images/linkedin.webp',
+                    height: 45,
+                  ),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           foregroundColor: Colors.white,
           elevation: 1,
@@ -90,6 +123,11 @@ class Home extends StatelessWidget {
             Positioned.fill(
               child: TabBarView(
                 children: <Widget>[
+                  LawyerList(),
+                  AtuationsList(),
+                  AtuationsList(),
+                  LawyerList(),
+                  LawyerList(),
                   LawyerList(),
                 ],
               ),

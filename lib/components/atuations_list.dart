@@ -1,13 +1,13 @@
-import 'package:app/model/team.dart';
+import 'package:app/components/atuations_card.dart';
+import 'package:app/model/atuation.dart';
 import 'package:flutter/material.dart';
 
-import '../data/team_data.dart';
-import 'lawyer_card.dart';
+import '../data/atuation_data.dart';
 
-class LawyerList extends StatelessWidget {
-  LawyerList({super.key});
+class AtuationsList extends StatelessWidget {
+  AtuationsList({super.key});
 
-  final List<Team> data = teamData;
+  final List<Atuation> atuations = atuationData;
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +17,18 @@ class LawyerList extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(30.0),
           child: Text(
-            'Nossa equipe',
+            'Areas de atuação',
             style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
         Expanded(
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return LawyerCard(team: teamData[index]);
+              return AtuationsCard(
+                atuation: atuations[index],
+              );
             },
-            itemCount: data.length,
+            itemCount: atuations.length,
           ),
         ),
       ],

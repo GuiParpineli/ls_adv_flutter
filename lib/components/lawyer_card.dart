@@ -1,4 +1,4 @@
-import 'package:app/data/data_texts.dart';
+import 'package:app/model/team.dart';
 import 'package:app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +9,11 @@ class LawyerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(children: [
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Flex(
+        direction: Axis.vertical,
+        children: [
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -24,55 +25,55 @@ class LawyerCard extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image(
-                    image: AssetImage(team.image),
-                    height: 300,
-                    fit: BoxFit.cover,
+                  Container(
+                    width: 250,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(26),
+                    ),
+                    child: Image(
+                      image: AssetImage(team.image),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  team.name,
-                                  style: const TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  team.role,
-                                  style: const TextStyle(fontSize: 14),
-                                ),
-                              ],
-                            ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                team.name,
+                                style: const TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                team.role,
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(top: 18.0, left: 8.0),
-                            child: Text(
-                              team.description,
-                              softWrap: true,
-                              textAlign: TextAlign.end,
-                            ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 18.0, left: 8.0),
+                          child: Text(
+                            team.description,
+                            softWrap: true,
+                            textAlign: TextAlign.end,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
           ),
-        ]),
-      ],
+        ],
+      ),
     );
   }
 }

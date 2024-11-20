@@ -1,4 +1,4 @@
-import 'data_texts.dart';
+import '../model/team.dart';
 
 List<Team> teamData = <Team>[
   Team(
