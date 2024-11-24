@@ -1,5 +1,4 @@
 import 'package:app/model/team.dart';
-import 'package:app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class LawyerCard extends StatelessWidget {

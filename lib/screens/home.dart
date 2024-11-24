@@ -1,8 +1,6 @@
 import 'package:app/components/atuations_list.dart';
-import 'package:app/model/team.dart';
 import 'package:flutter/material.dart';
 
-import '../components/lawyer_card.dart';
 import '../components/lawyer_list.dart';
 
 List<String> titles = <String>[
